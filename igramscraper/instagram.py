@@ -1,5 +1,5 @@
 import time
-import requests
+from requests_html import HTMLSession
 import re
 import json
 import hashlib
@@ -37,7 +37,7 @@ class Instagram:
     instance_cache = None
 
     def __init__(self, sleep_between_requests=0):
-        self.__req = requests.session()
+        self.__req = HTMLSession()
         self.paging_time_limit_sec = Instagram.PAGING_TIME_LIMIT_SEC
         self.paging_delay_minimum_microsec = Instagram.PAGING_DELAY_MINIMUM_MICROSEC
         self.paging_delay_maximum_microsec = Instagram.PAGING_DELAY_MAXIMUM_MICROSEC
